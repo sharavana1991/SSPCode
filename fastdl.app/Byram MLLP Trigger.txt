@@ -1,0 +1,28 @@
+mllpsend.exe /i 10.15.25.25 /p 59000/f ".hl7" /TWOWAY /SB 11 /EB 28 /CR 13
+
+PL 300
+
+
+select count(*) from hl7_nh_out_stage_pid
+
+select * from hl7_nh_out_stage_pid
+
+EmailAddresses = new Byram.com.Record();
+
+OrderNumber = (System.String)xpath(ORU_R01Msg.BodySegments ,"string(/*[local-name()='ORU_R01_25_GLO_DEF' and namespace-uri()='http://NetHealth.com/HL7/2X']/*[local-name()='OBR_ObservationRequest' and namespace-uri()='']/*[local-name()='OBR_2_PlacerOrderNumber' and namespace-uri()='']/*[local-name()='EI_0_EntityIdentifier' and namespace-uri()=''])");
+//Date =(System.DateTime)xpath(ORU_R01Msg.BodySegments, "string(/*[local-name()='ORU_R01_25_GLO_DEF' and namespace-uri()='http://NetHealth.com/HL7/2X']/*[local-name()='PID_PatientIdentification' and namespace-uri()='']/*[local-name()='PID_7_DateTimeOfBirth' and namespace-uri()=''])");
+
+
+
+
+Date =(System.String)xpath(ORU_R01Msg.BodySegments, "string(/*[local-name()='ORU_R01_25_GLO_DEF' and namespace-uri()='http://NetHealth.com/HL7/2X']/*[local-name()='PID_PatientIdentification' and namespace-uri()='']/*[local-name()='PID_7_DateTimeOfBirth' and namespace-uri()='']/*[local-name()='TS_0_Time' and namespace-uri()=''])");
+
+
+
+
+Date = System.String.Format("{0}/{1}/{2}", Date.Substring(4,2), Date.Substring(6,2),Date.Substring(0,4));
+
+
+FirstName = (System.String)xpath(ORU_R01Msg.BodySegments, "string(/*[local-name()='ORU_R01_25_GLO_DEF' and namespace-uri()='http://NetHealth.com/HL7/2X']/*[local-name()='PID_PatientIdentification' and namespace-uri()='']/*[local-name()='PID_5_PatientName' and namespace-uri()='']/*[local-name()='XPN_0_FamilyName' and namespace-uri()='']/*[local-name()='XPN_0_0_Surname' and namespace-uri()=''])");
+
+LastName = (System.String)xpath(ORU_R01Msg.BodySegments, "string(/*[local-name()='ORU_R01_25_GLO_DEF' and namespace-uri()='http://NetHealth.com/HL7/2X']/*[local-name()='PID_PatientIdentification' and namespace-uri()='']/*[local-name()='PID_5_PatientName' and namespace-uri()='']/*[local-name()='XPN_1_GivenName' and namespace-uri()=''])");

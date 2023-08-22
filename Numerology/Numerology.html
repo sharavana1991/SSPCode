@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Numerology</title>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
+		<style>
+			table, th, td {
+			  border: 1px solid black;
+			}
+			</style>
+	</head>
+	
+	<body>
+
+		<h1>
+			Numerology
+		</h1>
+		<p>
+			<u>Note :</u> The larger the name you enter, the longer the calculation time will be. The screen may remain frozen for a few seconds before displaying the result. <br>You can read the explanations below.
+			<br>
+			<u>Note 2 :</u> Javascript must be enabled in your web browser.
+		</p>
+
+		<form id="form">
+			<h3>
+				Enter the name : <input type="text" name="typedname" required="" autofocus>
+			</h3>
+
+			<input type="submit" name="calculate" value="Calculate" id="calculate">
+		</form>	
+
+		<h3 id="resultAnswer">The result of "<span id="name"></span>" is : <span id="result"></span></h3>
+
+		<!--Explanations-->
+		<br>
+		<hr>
+		<br>
+
+		<h3 style="text-align: center; margin: 0; text-decoration: underline;">Explanations</h3>
+
+		<h2 class="small1 center"><span id="chart"></span>Numerology Number Chart</h2>
+		<table class="center full-width tby w80"style="width:90%">
+			<tbody>
+				<tr class="big bold"><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>				
+				<tr><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>U</td><td>O</td><td>F</td></tr>
+				<tr><td>I</td><td>K</td><td>G</td><td>M</td><td>H</td><td>V</td><td>Z</td><td>P</td></tr>
+				<tr><td>J</td><td>R</td><td>L</td><td>T</td><td>N</td><td>W</td><td></td><td></td></tr>
+				<tr><td>Q</td><td></td><td>S</td><td></td><td>X</td><td></td><td></td><td></td></tr>
+				<tr><td>Y</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+			</tbody>
+		</table>
+		<script type="text/javascript" src="Numerology.js"></script>
+	
+	</body>
+
+</html>
